@@ -14,4 +14,9 @@ class Tests implements ITest {
 	function data(name:String):String {
 		return File.getContent('data/$name.txt').replace("\r", "");
 	}
+
+	function specDay01() {
+		24000 == Day01.findBiggestInventory(data("day01/example"));
+		67658 == Day01.findBiggestInventory(data("day01/input"));
+	}
 }
