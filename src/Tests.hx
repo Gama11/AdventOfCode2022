@@ -18,5 +18,8 @@ class Tests implements ITest {
 	function specDay01() {
 		24000 == Day01.findBiggestInventory(data("day01/example"));
 		67658 == Day01.findBiggestInventory(data("day01/input"));
+
+		45000 == Day01.sumTopThreeInventories(data("day01/example"));
+		200158 == Day01.sumTopThreeInventories(data("day01/input"));
 	}
 }

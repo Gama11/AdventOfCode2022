@@ -9,4 +9,9 @@ class Day01 {
 		final inventories = parse(input);
 		return inventories.max(inventory -> inventory.sum()).value;
 	}
+
+	public static function sumTopThreeInventories(input:String):Int {
+		final inventorySizes = parse(input).map(inventory -> inventory.sum());
+		return inventorySizes.sorted().splice(-3, 3).sum();
+	}
 }
