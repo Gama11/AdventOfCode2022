@@ -24,7 +24,10 @@ class Tests implements ITest {
 	}
 
 	function specDay02() {
-		15 == Day02.calculateTotalScore(data("day02/example"));
-		15632 == Day02.calculateTotalScore(data("day02/input"));
+		15 == Day02.calculateTotalScore(data("day02/example"), Day02.resolveAsShape);
+		15632 == Day02.calculateTotalScore(data("day02/input"), Day02.resolveAsShape);
+
+		12 == Day02.calculateTotalScore(data("day02/example"), Day02.resolveAsOutcome);
+		14416 == Day02.calculateTotalScore(data("day02/input"), Day02.resolveAsOutcome);
 	}
 }
