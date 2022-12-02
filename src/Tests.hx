@@ -22,4 +22,9 @@ class Tests implements ITest {
 		45000 == Day01.sumTopThreeInventories(data("day01/example"));
 		200158 == Day01.sumTopThreeInventories(data("day01/input"));
 	}
+
+	function specDay02() {
+		15 == Day02.calculateTotalScore(data("day02/example"));
+		15632 == Day02.calculateTotalScore(data("day02/input"));
+	}
 }
