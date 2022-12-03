@@ -34,5 +34,8 @@ class Tests implements ITest {
 	function specDay03() {
 		157 == Day03.sumPriorities(data("day03/example"));
 		7746 == Day03.sumPriorities(data("day03/input"));
+
+		70 == Day03.sumGroupPriorities(data("day03/example"));
+		2604 == Day03.sumGroupPriorities(data("day03/input"));
 	}
 }

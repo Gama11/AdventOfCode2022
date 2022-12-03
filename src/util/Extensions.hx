@@ -153,6 +153,19 @@ class Extensions {
 		return result;
 	}
 
+	public static function chunked<T>(a:ReadOnlyArray<T>, size:Int):Array<Array<T>> {
+		final chunks = [];
+		var chunk = [];
+		for (i => element in a) {
+			chunk.push(element);
+			if (chunk.length >= size) {
+				chunks.push(chunk);
+				chunk = [];
+			}
+		}
+		return chunks;
+	}
+
 	public static inline function also<T>(t:T, f:T->Void):T {
 		f(t);
 		return t;
