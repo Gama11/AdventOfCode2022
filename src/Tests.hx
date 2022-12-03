@@ -30,4 +30,9 @@ class Tests implements ITest {
 		12 == Day02.calculateTotalScore(data("day02/example"), Day02.resolveAsOutcome);
 		14416 == Day02.calculateTotalScore(data("day02/input"), Day02.resolveAsOutcome);
 	}
+
+	function specDay03() {
+		157 == Day03.sumPriorities(data("day03/example"));
+		7746 == Day03.sumPriorities(data("day03/input"));
+	}
 }
