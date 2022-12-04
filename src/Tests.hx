@@ -42,5 +42,8 @@ class Tests implements ITest {
 	function specDay04() {
 		2 == Day04.countFullyContainedPairs(data("day04/example"));
 		431 == Day04.countFullyContainedPairs(data("day04/input"));
+
+		4 == Day04.countOverlappingPairs(data("day04/example"));
+		823 == Day04.countOverlappingPairs(data("day04/input"));
 	}
 }
