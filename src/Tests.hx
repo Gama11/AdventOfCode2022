@@ -38,4 +38,9 @@ class Tests implements ITest {
 		70 == Day03.sumGroupPriorities(data("day03/example"));
 		2604 == Day03.sumGroupPriorities(data("day03/input"));
 	}
+
+	function specDay04() {
+		2 == Day04.countFullyContainedPairs(data("day04/example"));
+		431 == Day04.countFullyContainedPairs(data("day04/input"));
+	}
 }
