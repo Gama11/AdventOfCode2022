@@ -46,4 +46,9 @@ class Tests implements ITest {
 		4 == Day04.countOverlappingPairs(data("day04/example"));
 		823 == Day04.countOverlappingPairs(data("day04/input"));
 	}
+
+	function specDay05() {
+		"CMZ" == Day05.findTopCrates(data("day05/example"));
+		"TQRFCBSJJ" == Day05.findTopCrates(data("day05/input"));
+	}
 }
