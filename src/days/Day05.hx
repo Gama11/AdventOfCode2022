@@ -32,12 +32,15 @@ class Day05 {
 		};
 	}
 
-	public static function findTopCrates(input:String):String {
+	public static function findTopCrates(input:String, retainOrder:Bool):String {
 		final parsed = parse(input);
 		final stacks = parsed.stacks;
 		for (step in parsed.procedure) {
-			for (_ in 0...step.amount) {
-				final crate = stacks[step.from - 1].pop();
+			final crates = [for (_ in 0...step.amount) stacks[step.from - 1].pop()];
+			if (retainOrder) {
+				crates.reverse();
+			}
+			for (crate in crates) {
 				stacks[step.to - 1].push(crate);
 			}
 		}

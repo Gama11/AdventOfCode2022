@@ -48,7 +48,10 @@ class Tests implements ITest {
 	}
 
 	function specDay05() {
-		"CMZ" == Day05.findTopCrates(data("day05/example"));
-		"TQRFCBSJJ" == Day05.findTopCrates(data("day05/input"));
+		"CMZ" == Day05.findTopCrates(data("day05/example"), false);
+		"TQRFCBSJJ" == Day05.findTopCrates(data("day05/input"), false);
+
+		"MCD" == Day05.findTopCrates(data("day05/example"), true);
+		"RMHFJNVFP" == Day05.findTopCrates(data("day05/input"), true);
 	}
 }
