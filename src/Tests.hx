@@ -54,4 +54,13 @@ class Tests implements ITest {
 		"MCD" == Day05.findTopCrates(data("day05/example"), true);
 		"RMHFJNVFP" == Day05.findTopCrates(data("day05/input"), true);
 	}
+
+	function specDay06() {
+		7 == Day06.findMarkerOffset("mjqjpqmgbljsphdztnvjfqwrcgsmlb");
+		5 == Day06.findMarkerOffset("bvwbjplbgvbhsrlpgdmjqwftvncz");
+		6 == Day06.findMarkerOffset("nppdvjthqldpwncqszvftbrmjlhg");
+		10 == Day06.findMarkerOffset("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg");
+		11 == Day06.findMarkerOffset("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw");
+		1080 == Day06.findMarkerOffset(data("day06/input"));
+	}
 }
