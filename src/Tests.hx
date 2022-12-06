@@ -56,11 +56,18 @@ class Tests implements ITest {
 	}
 
 	function specDay06() {
-		7 == Day06.findMarkerOffset("mjqjpqmgbljsphdztnvjfqwrcgsmlb");
-		5 == Day06.findMarkerOffset("bvwbjplbgvbhsrlpgdmjqwftvncz");
-		6 == Day06.findMarkerOffset("nppdvjthqldpwncqszvftbrmjlhg");
-		10 == Day06.findMarkerOffset("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg");
-		11 == Day06.findMarkerOffset("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw");
-		1080 == Day06.findMarkerOffset(data("day06/input"));
+		7 == Day06.findStartOfPacket("mjqjpqmgbljsphdztnvjfqwrcgsmlb");
+		5 == Day06.findStartOfPacket("bvwbjplbgvbhsrlpgdmjqwftvncz");
+		6 == Day06.findStartOfPacket("nppdvjthqldpwncqszvftbrmjlhg");
+		10 == Day06.findStartOfPacket("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg");
+		11 == Day06.findStartOfPacket("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw");
+		1080 == Day06.findStartOfPacket(data("day06/input"));
+
+		19 == Day06.findStartOfMessage("mjqjpqmgbljsphdztnvjfqwrcgsmlb");
+		23 == Day06.findStartOfMessage("bvwbjplbgvbhsrlpgdmjqwftvncz");
+		23 == Day06.findStartOfMessage("nppdvjthqldpwncqszvftbrmjlhg");
+		29 == Day06.findStartOfMessage("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg");
+		26 == Day06.findStartOfMessage("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw");
+		3645 == Day06.findStartOfMessage(data("day06/input"));
 	}
 }
