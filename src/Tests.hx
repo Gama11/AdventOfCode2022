@@ -74,5 +74,8 @@ class Tests implements ITest {
 	function specDay07() {
 		95437 == Day07.sumOfSmallDirectories(data("day07/example"));
 		1243729 == Day07.sumOfSmallDirectories(data("day07/input"));
+
+		24933642 == Day07.findSizeOfDeletionTarget(data("day07/example"));
+		4443914 == Day07.findSizeOfDeletionTarget(data("day07/input"));
 	}
 }

@@ -41,22 +41,40 @@ class Day07 {
 		return fileSystem;
 	}
 
+	static function calculateSize(fileSystem:FileSystem, path:String, onDirectory:(size:Int) -> Void):Int {
+		return switch fileSystem[path] {
+			case null: throw 'path $path not found';
+			case File(size): size;
+			case Directory(content):
+				content.map(name -> calculateSize(fileSystem, path + "/" + name, onDirectory)).sum().also(onDirectory);
+		}
+	}
+
 	public static function sumOfSmallDirectories(input:String):Int {
 		final fileSystem = parse(input);
-		final smallDirectories = [];
-		function size(path:String):Int {
-			return switch fileSystem[path] {
-				case null: throw 'path $path not found';
-				case File(size): size;
-				case Directory(content):
-					content.map(name -> size(path + "/" + name)).sum().also(function(size) {
-						if (size <= 100000) {
-							smallDirectories.push(size);
-						}
-					});
+		var sum = 0;
+		calculateSize(fileSystem, "/", function(size) {
+			if (size <= 100000) {
+				sum += size;
 			}
-		}
-		size("/");
-		return smallDirectories.sum();
+		});
+		return sum;
+	}
+
+	public static function findSizeOfDeletionTarget(input:String):Int {
+		final fileSystem = parse(input);
+		final unusedSpace = 70000000 - calculateSize(fileSystem, "/", _ -> {});
+		final minimumDeletion = 30000000 - unusedSpace;
+		var targetSize:Int = null;
+		calculateSize(fileSystem, "/", function(size) {
+			if (size >= minimumDeletion) {
+				targetSize = if (targetSize == null) {
+					size;
+				} else {
+					Std.int(Math.min(targetSize, size));
+				}
+			}
+		});
+		return targetSize;
 	}
 }
