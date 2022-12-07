@@ -70,4 +70,9 @@ class Tests implements ITest {
 		26 == Day06.findStartOfMessage("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw");
 		3645 == Day06.findStartOfMessage(data("day06/input"));
 	}
+
+	function specDay07() {
+		95437 == Day07.sumOfSmallDirectories(data("day07/example"));
+		1243729 == Day07.sumOfSmallDirectories(data("day07/input"));
+	}
 }

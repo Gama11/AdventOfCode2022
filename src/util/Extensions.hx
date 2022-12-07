@@ -122,9 +122,10 @@ class Extensions {
 		return array;
 	}
 
-	public static function getOrDefault<K, V>(map:Map<K, V>, key:K, defaultValue:V):V {
-		final value = map[key];
-		return if (value == null) defaultValue else value;
+	public static function compute<K, V>(map:Map<K, V>, key:K, compute:(Null<V>)->V):V {
+		final value = compute(map[key]);
+		map[key] = value;
+		return value;
 	}
 
 	public static inline function last<T>(array:ReadOnlyArray<T>):T {
