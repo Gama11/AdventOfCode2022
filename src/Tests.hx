@@ -82,5 +82,8 @@ class Tests implements ITest {
 	function specDay08() {
 		21 == Day08.countVisibleTrees(data("day08/example"));
 		1818 == Day08.countVisibleTrees(data("day08/input"));
+
+		8 == Day08.findHighestScenicScore(data("day08/example"));
+		368368 == Day08.findHighestScenicScore(data("day08/input"));
 	}
 }
