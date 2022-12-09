@@ -16,20 +16,20 @@ class Day09 {
 		});
 	}
 
-	public static function countVisitedPositions(input:String):Int {
+	public static function countVisitedPositions(input:String, length:Int):Int {
 		final visited = new HashMap<Point, Bool>();
 		visited[new Point(0, 0)] = true;
-
-		var head = new Point(0, 0);
-		var tail = new Point(0, 0);
+		final rope = [for (_ in 0...length) new Point(0, 0)];
 
 		for (direction in parse(input)) {
-			head += direction;
-			if (!Direction.all.exists(dir -> tail + dir == head)) {
-				final diff = head - tail;
-				tail += new Point(diff.x.sign(), diff.y.sign());
-				visited[tail] = true;
+			rope[0] += direction;
+			for (i in 1...rope.length) {
+				if (!Direction.all.exists(dir -> rope[i] + dir == rope[i - 1])) {
+					final diff = rope[i - 1] - rope[i];
+					rope[i] += new Point(diff.x.sign(), diff.y.sign());
+				}
 			}
+			visited[rope.last()] = true;
 		}
 		return visited.count();
 	}

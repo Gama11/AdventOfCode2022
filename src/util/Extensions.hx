@@ -122,6 +122,12 @@ class Extensions {
 		return array;
 	}
 
+	public static function reversed<T>(array:Array<T>):Array<T> {
+		array = array.copy();
+		array.reverse();
+		return array;
+	}
+
 	public static function compute<K, V>(map:Map<K, V>, key:K, compute:(Null<V>)->V):V {
 		final value = compute(map[key]);
 		map[key] = value;

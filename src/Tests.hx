@@ -88,7 +88,11 @@ class Tests implements ITest {
 	}
 
 	function specDay09() {
-		13 == Day09.countVisitedPositions(data("day09/example"));
-		6081 == Day09.countVisitedPositions(data("day09/input"));
+		13 == Day09.countVisitedPositions(data("day09/example"), 2);
+		6081 == Day09.countVisitedPositions(data("day09/input"), 2);
+		
+		1 == Day09.countVisitedPositions(data("day09/example"), 10);
+		36 == Day09.countVisitedPositions(data("day09/example2"), 10);
+		2487 == Day09.countVisitedPositions(data("day09/input"), 10);
 	}
 }
