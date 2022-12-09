@@ -13,8 +13,8 @@ abstract Point(PointImpl) from PointImpl to Hashable {
 		return new Point(this.x - point.x, this.y - point.y);
 	}
 
-	@:op(A * B) inline function scale(n:Int):Point {
-		return new Point(this.x * n, this.y * n);
+	@:op(A * B) inline function scale(n:Float):Point {
+		return new Point(Std.int(this.x * n), Std.int(this.y * n));
 	}
 
 	@:op(A == B) inline function equals(point:Point):Bool {
@@ -44,32 +44,6 @@ private class PointImpl implements Hashable {
 
 	public function distanceTo(point:Point):Int {
 		return Std.int(Math.abs(x - point.x) + Math.abs(y - point.y));
-	}
-
-	public function angleBetween(point:Point):Float {
-		// from FlxPoint
-		var x:Float = point.x - x;
-		var y:Float = point.y - y;
-		var angle:Float = 0;
-		if (x != 0 || y != 0) {
-			var c1:Float = Math.PI * 0.25;
-			var c2:Float = 3 * c1;
-			var ay:Float = (y < 0) ? -y : y;
-
-			if (x >= 0) {
-				angle = c1 - c1 * ((x - ay) / (x + ay));
-			} else {
-				angle = c2 - c1 * ((x + ay) / (ay - x));
-			}
-			angle = ((y < 0) ? -angle : angle) * (180 / Math.PI);
-
-			if (angle > 90) {
-				angle = angle - 270;
-			} else {
-				angle += 90;
-			}
-		}
-		return angle;
 	}
 
 	public function shortString():String {

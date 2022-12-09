@@ -30,7 +30,7 @@ abstract Direction(Point) to Point to Hashable {
 			case Up: "Up";
 			case Down: "Down";
 			case Right: "Right";
-			case _: "unknown direction";
+			case _: "Direction " + this.toString();
 		}
 	}
 

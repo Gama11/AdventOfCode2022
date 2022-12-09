@@ -86,4 +86,9 @@ class Tests implements ITest {
 		8 == Day08.findHighestScenicScore(data("day08/example"));
 		368368 == Day08.findHighestScenicScore(data("day08/input"));
 	}
+
+	function specDay09() {
+		13 == Day09.countVisitedPositions(data("day09/example"));
+		6081 == Day09.countVisitedPositions(data("day09/input"));
+	}
 }
