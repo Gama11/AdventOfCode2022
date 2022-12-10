@@ -22,12 +22,12 @@ class Day08 {
 	}
 
 	public static function countVisibleTrees(input:String):Int {
-		final grid = Util.parseGrid(input, Std.parseInt).map;
+		final grid = Util.parseGrid(input, parseInt).map;
 		return grid.keys().iterable().count(pos -> Direction.horizontals.exists(dir -> lookAround(grid, pos, dir).reachedEdge));
 	}
 
 	public static function findHighestScenicScore(input:String):Int {
-		final grid = Util.parseGrid(input, Std.parseInt).map;
+		final grid = Util.parseGrid(input, parseInt).map;
 		return grid.keys()
 			.array()
 			.max(pos -> Direction.horizontals.map(dir -> lookAround(grid, pos, dir).viewingDistance).product())

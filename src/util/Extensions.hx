@@ -4,11 +4,11 @@ import haxe.ds.ReadOnlyArray;
 
 class Extensions {
 	public static function int(reg:EReg, n:Int):Null<Int> {
-		return Std.parseInt(reg.matched(n));
+		return parseInt(reg.matched(n));
 	}
 
 	public static inline function splitToInt(s:String, delimiter:String):Array<Int> {
-		return s.split(delimiter).map(Std.parseInt);
+		return s.split(delimiter).map(parseInt);
 	}
 
 	public static function sum(a:Array<Int>):Int {

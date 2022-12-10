@@ -2,7 +2,7 @@ package days;
 
 class Day01 {
 	static function parse(input:String) {
-		return input.split("\n\n").map(inventory -> inventory.split("\n").map(Std.parseInt));
+		return input.split("\n\n").map(inventory -> inventory.split("\n").map(parseInt));
 	}
 
 	public static function findBiggestInventory(input:String):Int {

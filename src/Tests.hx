@@ -95,4 +95,9 @@ class Tests implements ITest {
 		36 == Day09.countVisitedPositions(data("day09/example2"), 10);
 		2487 == Day09.countVisitedPositions(data("day09/input"), 10);
 	}
+
+	function specDay10() {
+		13140 == Day10.sumSignalStrengths(data("day10/example"));
+		15260 == Day10.sumSignalStrengths(data("day10/input"));
+	}
 }

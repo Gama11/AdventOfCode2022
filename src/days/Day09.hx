@@ -4,7 +4,7 @@ class Day09 {
 	static function parse(input:String):Array<Direction> {
 		return input.split("\n").flatMap(function(line) {
 			final parts = line.split(" ");
-			final amount = Std.parseInt(parts[1]);
+			final amount = parseInt(parts[1]);
 			final direction = switch parts[0] {
 				case "U": Direction.Up;
 				case "D": Direction.Down;

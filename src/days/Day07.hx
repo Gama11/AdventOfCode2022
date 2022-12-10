@@ -31,7 +31,7 @@ class Day07 {
 				case ["$", "ls"]: // ignore
 				case ["dir", name]:
 					add(name);
-				case [Std.parseInt(_) => size, name]:
+				case [parseInt(_) => size, name]:
 					add(name);
 					fileSystem[path() + "/" + name] = File(size);
 				case _:

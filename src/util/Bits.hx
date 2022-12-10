@@ -3,7 +3,7 @@ package util;
 @:forward(length)
 abstract Bits(Array<Int>) {
 	public static function parse(s:String) {
-		return new Bits(s.split("").map(Std.parseInt));
+		return new Bits(s.split("").map(parseInt));
 	}
 
 	public function new(bits:Array<Int>)
