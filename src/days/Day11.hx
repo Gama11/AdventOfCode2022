@@ -55,9 +55,8 @@ Monkey \\d+:
 		});
 	}
 
-	public static function calculateMonkeyBusiness(input:String):Int {
-		final monkeys = parse(input);
-		for (_ in 0...20) {
+	static function calculateMonkeyBusiness(monkeys:Array<Monkey>, rounds:Int, manageWorry:(Int) -> Int):Int {
+		for (_ in 0...rounds) {
 			for (monkey in monkeys) {
 				while (monkey.items.length > 0) {
 					var worryLevel = monkey.items.shift();
@@ -71,7 +70,7 @@ Monkey \\d+:
 						case Multiply:
 							worryLevel *= operand;
 					}
-					worryLevel = Math.floor(worryLevel  / 3);
+					worryLevel = manageWorry(worryLevel);
 
 					final nextMonkey = if (worryLevel % monkey.test.divideBy == 0) {
 						monkey.test.success;
@@ -84,5 +83,15 @@ Monkey \\d+:
 			}
 		}
 		return monkeys.map(m -> m.inspections).sorted().splice(-2, 2).product();
+	}
+
+	public static function calculateMonkeyBusiness1(input:String):Int {
+		return calculateMonkeyBusiness(parse(input), 20, worryLevel -> floor(worryLevel / 3));
+	}
+
+	public static function calculateMonkeyBusiness2(input:String):Int {
+		final monkeys = parse(input);
+		final range = monkeys.map(m -> m.test.divideBy).product();
+		return calculateMonkeyBusiness(monkeys, 10000, worryLevel -> mod(worryLevel, range));
 	}
 }

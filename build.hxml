@@ -13,6 +13,7 @@
 -lib hxnodejs
 
 # --python export/test.py
+# -cmd python export/test.py
 
 # -cpp export/cpp
 # -cmd export\cpp\Tests.exe

@@ -102,7 +102,10 @@ class Tests implements ITest {
 	}
 
 	function specDay11() {
-		10605 == Day11.calculateMonkeyBusiness(data("day11/example"));
-		55458 == Day11.calculateMonkeyBusiness(data("day11/input"));
+		10605 == Day11.calculateMonkeyBusiness1(data("day11/example"));
+		55458 == Day11.calculateMonkeyBusiness1(data("day11/input"));
+
+		2713310158 == Day11.calculateMonkeyBusiness2(data("day11/example"));
+		14508081294 == Day11.calculateMonkeyBusiness2(data("day11/input"));
 	}
 }

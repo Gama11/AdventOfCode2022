@@ -27,7 +27,7 @@ class Day10 {
 
 		for (instruction in instructions) {
 			inline function passCycle() {
-				final pixel = new Point(cycle % crtWidth, Math.floor(cycle / crtWidth));
+				final pixel = new Point(cycle % crtWidth, floor(cycle / crtWidth));
 				final spriteVisible = pixel.x == x - 1 || pixel.x == x || pixel.x == x + 1;
 				crt[pixel] = if (spriteVisible) "#" else ".";
 				
