@@ -100,4 +100,9 @@ class Tests implements ITest {
 		13140 == Day10.sumSignalStrengths(data("day10/example"));
 		15260 == Day10.sumSignalStrengths(data("day10/input"));
 	}
+
+	function specDay11() {
+		10605 == Day11.calculateMonkeyBusiness(data("day11/example"));
+		55458 == Day11.calculateMonkeyBusiness(data("day11/input"));
+	}
 }
