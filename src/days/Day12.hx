@@ -1,12 +1,10 @@
 package days;
 
 class Day12 {
-	static function parse(input:String) {
-		return input;
-	}
-
-	public static function findFewestSteps(input:String):Int {
+	public static function findFewestSteps(input:String, startingTiles:Array<String>):Int {
 		final map = Util.parseGrid(input, s -> s).map;
+		var starts = [for (pos => tile in map) if (startingTiles.contains(tile)) new SearchState(pos)];
+
 		var start = null;
 		var end = null;
 		for (pos => tile in map) {
@@ -20,7 +18,7 @@ class Day12 {
 		map[start] = "a";
 		map[end] = "z";
 
-		return AStar.search([new SearchState(start)], s -> s.pos == end, s -> s.pos.distanceTo(end), function(state) {
+		return AStar.search(starts, s -> s.pos == end, s -> s.pos.distanceTo(end), function(state) {
 			return Direction.horizontals //
 				.map(dir -> state.pos + dir) //
 				.filter(neighbor -> {

@@ -110,7 +110,10 @@ class Tests implements ITest {
 	}
 
 	function specDay12() {
-		31 == Day12.findFewestSteps(data("day12/example"));
-		520 == Day12.findFewestSteps(data("day12/input"));
+		31 == Day12.findFewestSteps(data("day12/example"), ["S"]);
+		520 == Day12.findFewestSteps(data("day12/input"), ["S"]);
+
+		29 == Day12.findFewestSteps(data("day12/example"), ["S", "a"]);
+		508 == Day12.findFewestSteps(data("day12/input"), ["S", "a"]);
 	}
 }
