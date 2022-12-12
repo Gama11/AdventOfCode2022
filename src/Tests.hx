@@ -108,4 +108,9 @@ class Tests implements ITest {
 		2713310158 == Day11.calculateMonkeyBusiness2(data("day11/example"));
 		14508081294 == Day11.calculateMonkeyBusiness2(data("day11/input"));
 	}
+
+	function specDay12() {
+		31 == Day12.findFewestSteps(data("day12/example"));
+		520 == Day12.findFewestSteps(data("day12/input"));
+	}
 }
