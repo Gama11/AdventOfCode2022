@@ -126,5 +126,8 @@ class Tests implements ITest {
 
 		13 == Day13.sumCorrectlyOrderedIndices(example);
 		5852 == Day13.sumCorrectlyOrderedIndices(input);
+
+		140 == Day13.findDecoderKey(example);
+		24190 == Day13.findDecoderKey(input);
 	}
 }

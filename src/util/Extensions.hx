@@ -122,13 +122,28 @@ class Extensions {
 		return array;
 	}
 
+	public static function mapNotNull<T, R>(array:Array<T>, f:(T) -> Null<R>):Array<R> {
+		final result = [];
+		for (element in array) {
+			final mapped = f(element);
+			if (mapped != null) {
+				result.push(mapped);
+			}
+		}
+		return result;
+	}
+
+	public static function withIndices<T>(array:Array<T>):Array<{index:Int, item:T}> {
+		return array.mapi((index, item) -> {index: index, item: item});
+	}
+
 	public static function reversed<T>(array:Array<T>):Array<T> {
 		array = array.copy();
 		array.reverse();
 		return array;
 	}
 
-	public static function compute<K, V>(map:Map<K, V>, key:K, compute:(Null<V>)->V):V {
+	public static function compute<K, V>(map:Map<K, V>, key:K, compute:(Null<V>) -> V):V {
 		final value = compute(map[key]);
 		map[key] = value;
 		return value;
