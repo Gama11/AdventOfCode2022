@@ -116,4 +116,15 @@ class Tests implements ITest {
 		29 == Day12.findFewestSteps(data("day12/example"), ["S", "a"]);
 		508 == Day12.findFewestSteps(data("day12/input"), ["S", "a"]);
 	}
+
+	function specDay13() {
+		final example = data("day13/example");
+		final input = data("day13/input");
+
+		example == Day13.printPacketPairs(Day13.parsePacketPairs(example));
+		input == Day13.printPacketPairs(Day13.parsePacketPairs(input));
+
+		13 == Day13.sumCorrectlyOrderedIndices(example);
+		5852 == Day13.sumCorrectlyOrderedIndices(input);
+	}
 }
