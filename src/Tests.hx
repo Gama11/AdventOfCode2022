@@ -132,7 +132,10 @@ class Tests implements ITest {
 	}
 
 	function specDay14() {
-		24 == Day14.countRestingSand(data("day14/example"));
-		618 == Day14.countRestingSand(data("day14/input"));
+		24 == Day14.countRestingSand(data("day14/example"), false);
+		618 == Day14.countRestingSand(data("day14/input"), false);
+
+		93 == Day14.countRestingSand(data("day14/example"), true);
+		26358 == Day14.countRestingSand(data("day14/input"), true);
 	}
 }

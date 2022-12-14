@@ -17,7 +17,7 @@ class Day14 {
 		});
 	}
 
-	public static function countRestingSand(input:String):Int {
+	public static function countRestingSand(input:String, withFloor:Bool):Int {
 		final map = new HashMap<Point, Tile>();
 		final scans = parse(input);
 		for (scan in scans) {
@@ -43,7 +43,8 @@ class Day14 {
 				final options = [pos + Down, pos + Down + Left, pos + Down + Right];
 				var resting = true;
 				for (option in options) {
-					if (!map.exists(option)) {
+					final isBlocked = map.exists(option) || (withFloor && option.y == maxY + 2);
+					if (!isBlocked) {
 						pos = option;
 						resting = false;
 						break;
@@ -52,11 +53,11 @@ class Day14 {
 				if (resting) {
 					map[pos] = Sand;
 					break;
-				} else if (pos.y > maxY) {
+				} else if (pos.y > maxY && !withFloor) {
 					return map.count(tile -> tile == Sand);
 				}
 			}
 		}
-		throw "unreachable";
+		return map.count(tile -> tile == Sand);
 	}
 }
