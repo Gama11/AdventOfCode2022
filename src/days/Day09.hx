@@ -25,8 +25,7 @@ class Day09 {
 			rope[0] += direction;
 			for (i in 1...rope.length) {
 				if (!Direction.all.exists(dir -> rope[i] + dir == rope[i - 1])) {
-					final diff = rope[i - 1] - rope[i];
-					rope[i] += new Point(diff.x.sign(), diff.y.sign());
+					rope[i] += (rope[i - 1] - rope[i]).sign();
 				}
 			}
 			visited[rope.last()] = true;

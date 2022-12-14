@@ -8,6 +8,19 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"type": "shell",
+			"label": "Generate Next Day",
+			"command": [
+				"npx",
+				"haxe",
+				"--run",
+				"NextDay"
+			],
+			"problemMatcher": [
+				"$haxe"
+			]
 		}
 	]
 }

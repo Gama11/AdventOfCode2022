@@ -178,7 +178,7 @@ class Extensions {
 	public static function chunked<T>(a:ReadOnlyArray<T>, size:Int):Array<Array<T>> {
 		final chunks = [];
 		var chunk = [];
-		for (i => element in a) {
+		for (element in a) {
 			chunk.push(element);
 			if (chunk.length >= size) {
 				chunks.push(chunk);
@@ -186,6 +186,18 @@ class Extensions {
 			}
 		}
 		return chunks;
+	}
+
+	public static function windowed<T>(a:ReadOnlyArray<T>, size:Int):Array<Array<T>> {
+		final windows = [];
+		final window = [for (i in 0...size) a[i]];
+		for (i in size...a.length) {
+			windows.push(window.copy());
+			window.shift();
+			window.push(a[i]);
+		}
+		windows.push(window);
+		return windows;
 	}
 
 	public static inline function also<T>(t:T, f:T->Void):T {

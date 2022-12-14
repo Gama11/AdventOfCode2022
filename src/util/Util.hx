@@ -51,7 +51,7 @@ class Util {
 	}
 
 	public static function renderPointHash<T>(map:HashMap<Point, T>, render:T->String, empty = " "):String {
-		return renderPointGrid([for (p in map.keys()) p], p -> render(map[p]), empty);
+		return renderPointGrid(map.keys().array(), p -> render(map[p]), empty);
 	}
 
 	public static function parseGrid<T>(input:String, convert:String->T, ?separator:EReg):Grid<T> {

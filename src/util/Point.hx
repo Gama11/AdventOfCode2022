@@ -28,6 +28,10 @@ abstract Point(PointImpl) from PointImpl to Hashable {
 	public inline function inverted():Point {
 		return new Point(-this.x, -this.y);
 	}
+
+	public function sign():Point {
+		return new Point(this.x.sign(), this.y.sign());
+	}
 }
 
 private class PointImpl implements Hashable {

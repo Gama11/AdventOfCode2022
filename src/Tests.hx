@@ -90,7 +90,7 @@ class Tests implements ITest {
 	function specDay09() {
 		13 == Day09.countVisitedPositions(data("day09/example"), 2);
 		6081 == Day09.countVisitedPositions(data("day09/input"), 2);
-		
+
 		1 == Day09.countVisitedPositions(data("day09/example"), 10);
 		36 == Day09.countVisitedPositions(data("day09/example2"), 10);
 		2487 == Day09.countVisitedPositions(data("day09/input"), 10);
@@ -129,5 +129,10 @@ class Tests implements ITest {
 
 		140 == Day13.findDecoderKey(example);
 		24190 == Day13.findDecoderKey(input);
+	}
+
+	function specDay14() {
+		24 == Day14.countRestingSand(data("day14/example"));
+		618 == Day14.countRestingSand(data("day14/input"));
 	}
 }
