@@ -49,7 +49,7 @@ class Day10 {
 					passCycle();
 			}
 		}
-		Sys.println(Util.renderPointHash(crt, s -> s));
+		// Sys.println(Util.renderPointHash(crt, s -> s));
 		return signalStrengthSum;
 	}
 }

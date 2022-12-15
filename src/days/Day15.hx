@@ -5,6 +5,11 @@ private typedef Measurement = {
 	final beacon:Point;
 }
 
+private typedef Line = {
+	final start:Point;
+	final end:Point;
+}
+
 class Day15 {
 	static function parse(input:String):Array<Measurement> {
 		return input.split("\n").map(function(line) {
@@ -19,9 +24,8 @@ class Day15 {
 		});
 	}
 
-	public static function countExcludedPositionsInRow(input:String, row:Int):Int {
-		final measurements = parse(input);
-		final lines = parse(input) //
+	static function analyzeRow(measurements: Array<Measurement>, row:Int):Array<Line> {
+		final lines = measurements //
 			.mapNotNull(function(measurement) {
 				final sensor = measurement.sensor;
 				final beacon = measurement.beacon;
@@ -50,7 +54,7 @@ class Day15 {
 				current = line;
 				continue;
 			}
-			if (current.end.x < line.start.x) {
+			if (current.end.x < line.start.x - 1) {
 				merged.push(current);
 				current = null;
 			} else if (line.end.x > current.end.x) {
@@ -60,14 +64,30 @@ class Day15 {
 		if (current != null) {
 			merged.push(current);
 		}
+		return merged;
+	}
 
-		final combinedLineWidths = merged.map(line -> line.end.x - line.start.x + 1).sum();
+	public static function countExcludedPositionsInRow(input:String, row:Int):Int {
+		final measurements = parse(input);
+		final lines = analyzeRow(measurements, row);
+		final combinedLineWidths = lines.map(line -> line.end.x - line.start.x + 1).sum();
 		final beaconsInRow = measurements //
 			.map(m -> m.beacon) //
 			.filter(b -> b.y == row) //
 			.filterDuplicates((a, b) -> a == b) //
 			.length;
-			
 		return combinedLineWidths - beaconsInRow;
+	}
+
+	public static function findTuningFrequency(input:String, searchSpace:Int):Int {
+		final measurements = parse(input);
+		for (row in 0...searchSpace + 1) {
+			final lines = analyzeRow(measurements, row);
+			if (lines.length > 1) {
+				final distressBeacon = lines[0].end + Direction.Right;
+				return distressBeacon.x * 4000000 + distressBeacon.y;
+			}
+		}
+		throw "not found";
 	}
 }

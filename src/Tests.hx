@@ -142,5 +142,8 @@ class Tests implements ITest {
 	function specDay15() {
 		26 == Day15.countExcludedPositionsInRow(data("day15/example"), 10);
 		5878678 == Day15.countExcludedPositionsInRow(data("day15/input"), 2000000);
+
+		56000011 == Day15.findTuningFrequency(data("day15/example"), 20);
+		11796491041245 == Day15.findTuningFrequency(data("day15/input"), 4000000);
 	}
 }
