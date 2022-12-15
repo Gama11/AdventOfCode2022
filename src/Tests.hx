@@ -138,4 +138,9 @@ class Tests implements ITest {
 		93 == Day14.countRestingSand(data("day14/example"), true);
 		26358 == Day14.countRestingSand(data("day14/input"), true);
 	}
+
+	function specDay15() {
+		26 == Day15.countExcludedPositionsInRow(data("day15/example"), 10);
+		5878678 == Day15.countExcludedPositionsInRow(data("day15/input"), 2000000);
+	}
 }
