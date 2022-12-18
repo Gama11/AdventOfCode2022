@@ -15,6 +15,7 @@ class Tests implements ITest {
 		return File.getContent('data/$name.txt').replace("\r", "");
 	}
 
+	#if !only_current_day
 	function specDay01() {
 		24000 == Day01.findBiggestInventory(data("day01/example"));
 		67658 == Day01.findBiggestInventory(data("day01/input"));
@@ -146,10 +147,14 @@ class Tests implements ITest {
 		56000011 == Day15.findTuningFrequency(data("day15/example"), 20);
 		11796491041245 == Day15.findTuningFrequency(data("day15/input"), 4000000);
 	}
+	#end
 
 	function specDay18() {
 		10 == Day18.calculateSurfaceArea(data("day18/example1"));
 		64 == Day18.calculateSurfaceArea(data("day18/example2"));
 		4444 == Day18.calculateSurfaceArea(data("day18/input"));
+
+		58 == Day18.calculateExteriorSurfaceArea(data("day18/example2"));
+		2530 == Day18.calculateExteriorSurfaceArea(data("day18/input"));
 	}
 }

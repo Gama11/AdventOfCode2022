@@ -5,6 +5,12 @@ import polygonal.ds.HashTable;
 
 @:forward(keys, iterator)
 abstract HashMap<K:Hashable, V>(HashTable<K, V>) to Iterable<V> {
+	public var size(get, never):Int;
+
+	inline function get_size() {
+		return this.size;
+	}
+
 	public inline function new() {
 		this = new HashTable(16);
 	}
@@ -37,7 +43,7 @@ abstract HashMap<K:Hashable, V>(HashTable<K, V>) to Iterable<V> {
 		return new HashMapKeyValueIterator<K, V>(cast this);
 	}
 
-	public function copy():HashMap<K,V> {
+	public function copy():HashMap<K, V> {
 		return cast this.clone();
 	}
 }
