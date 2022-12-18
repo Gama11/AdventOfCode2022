@@ -146,4 +146,10 @@ class Tests implements ITest {
 		56000011 == Day15.findTuningFrequency(data("day15/example"), 20);
 		11796491041245 == Day15.findTuningFrequency(data("day15/input"), 4000000);
 	}
+
+	function specDay18() {
+		10 == Day18.calculateSurfaceArea(data("day18/example1"));
+		64 == Day18.calculateSurfaceArea(data("day18/example2"));
+		4444 == Day18.calculateSurfaceArea(data("day18/input"));
+	}
 }
