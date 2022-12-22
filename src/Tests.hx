@@ -161,5 +161,8 @@ class Tests implements ITest {
 	function specDay21() {
 		152 == Day21.findRootMonkeyOutput(data("day21/example"));
 		276156919469632i64 == Day21.findRootMonkeyOutput(data("day21/input"));
+
+		301 == Day21.findCorrectHumanInput(data("day21/example"));
+		3441198826073i64 == Day21.findCorrectHumanInput(data("day21/input"));
 	}
 }
