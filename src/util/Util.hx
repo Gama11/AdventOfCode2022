@@ -58,7 +58,7 @@ class Util {
 		if (separator == null) {
 			separator = ~//g;
 		}
-		var grid = input.split("\n").map(line -> separator.split(line.trim()).filter(it -> it != ""));
+		var grid = input.lines().map(line -> separator.split(line.trim()).filter(it -> it != ""));
 		var result = new HashMap<Point, T>();
 		for (y in 0...grid.length) {
 			for (x in 0...grid[y].length) {
@@ -75,7 +75,7 @@ class Util {
 	public static function hashCode(a:Array<Int>):Int {
 		var result = 17;
 		for (n in a) {
-			result  = 31 * result + n;
+			result = 31 * result + n;
 		}
 		return result;
 	}

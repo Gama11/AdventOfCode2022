@@ -29,7 +29,7 @@ class Day13 {
 	}
 
 	public static function parsePacketPairs(input:String):Array<Array<Packet>> {
-		final pairs = input.split("\n\n").map(pair -> pair.split("\n"));
+		final pairs = input.split("\n\n").map(pair -> pair.lines());
 		function parsePacket(stream:Stream):Packet {
 			var list:Array<Packet> = null;
 			while (true) {

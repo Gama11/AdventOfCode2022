@@ -12,7 +12,7 @@ private typedef Range = {
 
 class Day04 {
 	static function parse(input:String):Array<AssignmentPair> {
-		return input.split("\n").map(function(line) {
+		return input.lines().map(function(line) {
 			final regex = ~/(\d+)-(\d+),(\d+)-(\d+)/;
 			regex.match(line);
 			return {

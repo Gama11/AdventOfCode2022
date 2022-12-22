@@ -9,7 +9,7 @@ private enum Tile {
 
 class Day14 {
 	static function parse(input:String):Array<Array<Point>> {
-		return input.split("\n").map(function(line) {
+		return input.lines().map(function(line) {
 			return line.split(" -> ").map(function(coord) {
 				final parts = coord.split(",").map(parseInt);
 				return new Point(parts[0], parts[1]);

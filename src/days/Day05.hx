@@ -3,7 +3,7 @@ package days;
 class Day05 {
 	static function parse(input:String) {
 		final parts = input.split("\n\n");
-		final slices = parts[0].split("\n").map(l -> l.split("")).slice(0, -1);
+		final slices = parts[0].lines().map(l -> l.split("")).slice(0, -1);
 		final stacks = [];
 		for (slice in slices) {
 			var i = 0;
@@ -17,7 +17,7 @@ class Day05 {
 				i++;
 			}
 		}
-		final procedure = parts[1].split("\n").map(function(line) {
+		final procedure = parts[1].lines().map(function(line) {
 			final regex = ~/move (\d+) from (\d+) to (\d+)/;
 			regex.match(line);
 			return {

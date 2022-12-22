@@ -12,7 +12,7 @@ private typedef Line = {
 
 class Day15 {
 	static function parse(input:String):Array<Measurement> {
-		return input.split("\n").map(function(line) {
+		return input.lines().map(function(line) {
 			final regex = ~/Sensor at x=(-?\d+), y=(-?\d+): closest beacon is at x=(-?\d+), y=(-?\d+)/;
 			if (!regex.match(line)) {
 				throw "unexpected input";
@@ -24,7 +24,7 @@ class Day15 {
 		});
 	}
 
-	static function analyzeRow(measurements: Array<Measurement>, row:Int):Array<Line> {
+	static function analyzeRow(measurements:Array<Measurement>, row:Int):Array<Line> {
 		final lines = measurements //
 			.mapNotNull(function(measurement) {
 				final sensor = measurement.sensor;

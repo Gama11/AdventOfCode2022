@@ -200,6 +200,14 @@ class Extensions {
 		return windows;
 	}
 
+	public static inline function lines(s:String):Array<String> {
+		return s.split("\n");
+	}
+
+	public static inline function remove(s:String, by:String):String {
+		return s.replace(by, "");
+	}
+
 	public static inline function also<T>(t:T, f:T->Void):T {
 		f(t);
 		return t;

@@ -7,7 +7,7 @@ private enum Instruction {
 
 class Day10 {
 	static function parse(input:String) {
-		return input.split("\n").map(function(line) {
+		return input.lines().map(function(line) {
 			return switch line.split(" ") {
 				case ["addx", value]: Addx(parseInt(value));
 				case ["noop"]: Noop;
@@ -30,7 +30,7 @@ class Day10 {
 				final pixel = new Point(cycle % crtWidth, floor(cycle / crtWidth));
 				final spriteVisible = pixel.x == x - 1 || pixel.x == x || pixel.x == x + 1;
 				crt[pixel] = if (spriteVisible) "#" else ".";
-				
+
 				cycle++;
 
 				if ((cycle - 20) % crtWidth == 0) {

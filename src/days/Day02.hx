@@ -13,7 +13,7 @@ private typedef Round = {
 
 class Day02 {
 	static function parse(input:String, resolveMove:(opponent:Shape, letter:String) -> Shape):Array<Round> {
-		return input.split("\n").map(function(line) {
+		return input.lines().map(function(line) {
 			final parts = line.split(" ");
 			final opponentMove = switch parts[0] {
 				case "A": Rock;
@@ -40,16 +40,16 @@ class Day02 {
 	public static function resolveAsOutcome(opponent:Shape, letter:String) {
 		return switch letter {
 			case "X": switch opponent {
-				case Rock: Scissors;
-				case Paper: Rock;
-				case Scissors: Paper;
-			}
+					case Rock: Scissors;
+					case Paper: Rock;
+					case Scissors: Paper;
+				}
 			case "Y": opponent;
 			case "Z": switch opponent {
-				case Rock: Paper;
-				case Paper: Scissors;
-				case Scissors: Rock;
-			}
+					case Rock: Paper;
+					case Paper: Scissors;
+					case Scissors: Rock;
+				}
 			case _: throw 'invalid';
 		}
 	}

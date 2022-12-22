@@ -2,7 +2,7 @@ package days;
 
 class Day09 {
 	static function parse(input:String):Array<Direction> {
-		return input.split("\n").flatMap(function(line) {
+		return input.lines().flatMap(function(line) {
 			final parts = line.split(" ");
 			final amount = parseInt(parts[1]);
 			final direction = switch parts[0] {

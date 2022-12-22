@@ -22,7 +22,7 @@ class Day07 {
 				}
 			});
 		}
-		for (line in input.split("\n")) {
+		for (line in input.lines()) {
 			switch line.split(" ") {
 				case ["$", "cd", ".."]:
 					workingDirectory.pop();

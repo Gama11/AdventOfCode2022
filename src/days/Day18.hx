@@ -4,7 +4,7 @@ import haxe.ds.ReadOnlyArray;
 
 class Day18 {
 	static function parse(input:String):HashMap<PointN, Bool> {
-		final list = input.split("\n").map(line -> new PointN(line.splitToInt(",")));
+		final list = input.lines().map(line -> new PointN(line.splitToInt(",")));
 		final map = new HashMap<PointN, Bool>();
 		for (cube in list) {
 			map[cube] = true;

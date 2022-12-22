@@ -7,7 +7,7 @@ private typedef Rucksack = {
 
 class Day03 {
 	static function parse(input:String):Array<Rucksack> {
-		return input.split("\n").map(function(line) {
+		return input.lines().map(function(line) {
 			final items = line.split("");
 			final halfLength = Std.int(items.length / 2);
 			return {
@@ -17,7 +17,7 @@ class Day03 {
 		});
 	}
 
-	static function calculateItemPriority(item: String):Int {
+	static function calculateItemPriority(item:String):Int {
 		return (if (item.toLowerCase() == item) {
 			item.charCodeAt(0) - 'a'.code;
 		} else {

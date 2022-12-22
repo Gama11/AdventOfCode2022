@@ -12,7 +12,7 @@ class Tests implements ITest {
 	function new() {}
 
 	function data(name:String):String {
-		return File.getContent('data/$name.txt').replace("\r", "");
+		return File.getContent('data/$name.txt').remove("\r");
 	}
 
 	#if !only_current_day
@@ -147,7 +147,6 @@ class Tests implements ITest {
 		56000011 == Day15.findTuningFrequency(data("day15/example"), 20);
 		11796491041245 == Day15.findTuningFrequency(data("day15/input"), 4000000);
 	}
-	#end
 
 	function specDay18() {
 		10 == Day18.calculateSurfaceArea(data("day18/example1"));
@@ -156,5 +155,11 @@ class Tests implements ITest {
 
 		58 == Day18.calculateExteriorSurfaceArea(data("day18/example2"));
 		2530 == Day18.calculateExteriorSurfaceArea(data("day18/input"));
+	}
+	#end
+
+	function specDay21() {
+		152 == Day21.findRootMonkeyOutput(data("day21/example"));
+		276156919469632i64 == Day21.findRootMonkeyOutput(data("day21/input"));
 	}
 }
