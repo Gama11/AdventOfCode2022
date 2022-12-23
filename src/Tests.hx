@@ -156,7 +156,14 @@ class Tests implements ITest {
 		58 == Day18.calculateExteriorSurfaceArea(data("day18/example2"));
 		2530 == Day18.calculateExteriorSurfaceArea(data("day18/input"));
 	}
+	#end
 
+	function specDay20() {
+		3 == Day20.findGroveCoordinates(data("day20/example"));
+		4066 == Day20.findGroveCoordinates(data("day20/input"));
+	}
+
+	#if !only_current_day
 	function specDay21() {
 		152 == Day21.findRootMonkeyOutput(data("day21/example"));
 		276156919469632i64 == Day21.findRootMonkeyOutput(data("day21/input"));
@@ -164,7 +171,6 @@ class Tests implements ITest {
 		301 == Day21.findCorrectHumanInput(data("day21/example"));
 		3441198826073i64 == Day21.findCorrectHumanInput(data("day21/input"));
 	}
-	#end
 
 	function specDay23() {
 		110 == Day23.countEmptyTilesBetweenElves(data("day23/example"));
@@ -173,4 +179,5 @@ class Tests implements ITest {
 		20 == Day23.findFirstRoundWithoutMovement(data("day23/example"));
 		930 == Day23.findFirstRoundWithoutMovement(data("day23/input"));
 	}
+	#end
 }
