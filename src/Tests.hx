@@ -167,8 +167,10 @@ class Tests implements ITest {
 	#end
 
 	function specDay23() {
-		25 == Day23.countEmptyTilesBetweenElves(data("day23/example1"));
-		110 == Day23.countEmptyTilesBetweenElves(data("day23/example2"));
+		110 == Day23.countEmptyTilesBetweenElves(data("day23/example"));
 		3780 == Day23.countEmptyTilesBetweenElves(data("day23/input"));
+
+		20 == Day23.findFirstRoundWithoutMovement(data("day23/example"));
+		930 == Day23.findFirstRoundWithoutMovement(data("day23/input"));
 	}
 }
