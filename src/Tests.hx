@@ -159,8 +159,11 @@ class Tests implements ITest {
 	#end
 
 	function specDay20() {
-		3 == Day20.findGroveCoordinates(data("day20/example"));
-		4066 == Day20.findGroveCoordinates(data("day20/input"));
+		3 == Day20.findGroveCoordinates(data("day20/example"), 1, 1);
+		4066 == Day20.findGroveCoordinates(data("day20/input"), 1, 1);
+
+		1623178306 == Day20.findGroveCoordinates(data("day20/example"), 10, 811589153);
+		6704537992933 == Day20.findGroveCoordinates(data("day20/input"), 10, 811589153);
 	}
 
 	#if !only_current_day
