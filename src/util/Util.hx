@@ -54,7 +54,7 @@ class Util {
 		return renderPointGrid(map.keys().array(), p -> render(map[p]), empty);
 	}
 
-	public static function parseGrid<T>(input:String, convert:String->T, ?separator:EReg):Grid<T> {
+	public static function parseGrid<T>(input:String, convert:String->Null<T>, ?separator:EReg):Grid<T> {
 		if (separator == null) {
 			separator = ~//g;
 		}
@@ -62,7 +62,10 @@ class Util {
 		var result = new HashMap<Point, T>();
 		for (y in 0...grid.length) {
 			for (x in 0...grid[y].length) {
-				result[new Point(x, y)] = convert(grid[y][x]);
+				final value = convert(grid[y][x]);
+				if (value != null) {
+					result[new Point(x, y)] = value;
+				}
 			}
 		}
 		return {

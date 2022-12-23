@@ -156,7 +156,6 @@ class Tests implements ITest {
 		58 == Day18.calculateExteriorSurfaceArea(data("day18/example2"));
 		2530 == Day18.calculateExteriorSurfaceArea(data("day18/input"));
 	}
-	#end
 
 	function specDay21() {
 		152 == Day21.findRootMonkeyOutput(data("day21/example"));
@@ -164,5 +163,12 @@ class Tests implements ITest {
 
 		301 == Day21.findCorrectHumanInput(data("day21/example"));
 		3441198826073i64 == Day21.findCorrectHumanInput(data("day21/input"));
+	}
+	#end
+
+	function specDay23() {
+		25 == Day23.countEmptyTilesBetweenElves(data("day23/example1"));
+		110 == Day23.countEmptyTilesBetweenElves(data("day23/example2"));
+		3780 == Day23.countEmptyTilesBetweenElves(data("day23/input"));
 	}
 }

@@ -46,6 +46,12 @@ abstract HashMap<K:Hashable, V>(HashTable<K, V>) to Iterable<V> {
 	public function copy():HashMap<K, V> {
 		return cast this.clone();
 	}
+
+	public function compute(key:K, compute:(Null<V>) -> V):V {
+		final value = compute(get(key));
+		set(key, value);
+		return value;
+	}
 }
 
 private class HashMapKeyValueIterator<K:Hashable, V> {
