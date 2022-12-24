@@ -156,7 +156,6 @@ class Tests implements ITest {
 		58 == Day18.calculateExteriorSurfaceArea(data("day18/example2"));
 		2530 == Day18.calculateExteriorSurfaceArea(data("day18/input"));
 	}
-	#end
 
 	function specDay20() {
 		3 == Day20.findGroveCoordinates(data("day20/example"), 1, 1);
@@ -166,7 +165,6 @@ class Tests implements ITest {
 		6704537992933 == Day20.findGroveCoordinates(data("day20/input"), 10, 811589153);
 	}
 
-	#if !only_current_day
 	function specDay21() {
 		152 == Day21.findRootMonkeyOutput(data("day21/example"));
 		276156919469632i64 == Day21.findRootMonkeyOutput(data("day21/input"));
@@ -183,4 +181,9 @@ class Tests implements ITest {
 		930 == Day23.findFirstRoundWithoutMovement(data("day23/input"));
 	}
 	#end
+
+	function specDay24() {
+		18 == Day24.findQuickestPath(data("day24/example"));
+		288 == Day24.findQuickestPath(data("day24/input"));
+	}
 }
