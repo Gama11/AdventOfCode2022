@@ -183,7 +183,10 @@ class Tests implements ITest {
 	#end
 
 	function specDay24() {
-		18 == Day24.findQuickestPath(data("day24/example"));
-		288 == Day24.findQuickestPath(data("day24/input"));
+		18 == Day24.findQuickestPathWithoutSnacks(data("day24/example"));
+		288 == Day24.findQuickestPathWithoutSnacks(data("day24/input"));
+
+		54 == Day24.findQuickestPathWithSnacks(data("day24/example"));
+		861 == Day24.findQuickestPathWithSnacks(data("day24/input"));
 	}
 }

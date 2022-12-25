@@ -9,9 +9,14 @@ private enum Tile {
 	Blizzard(directions:ReadOnlyArray<Direction>);
 }
 
+private typedef Valley = Grid<Tile> & {
+	final start:Point;
+	final goal:Point;
+}
+
 class Day24 {
-	static function parse(input:String):Grid<Tile> {
-		return Util.parseGrid(input, function(s) {
+	static function parse(input:String):Valley {
+		final grid = Util.parseGrid(input, function(s) {
 			return switch s {
 				case "#": Wall;
 				case ".": Empty;
@@ -22,16 +27,19 @@ class Day24 {
 				case _: throw 'unknown tile $s';
 			}
 		});
+		return {
+			map: grid.map,
+			width: grid.width,
+			height: grid.height,
+			start: new Point(1, 0),
+			goal: new Point(grid.width - 2, grid.height - 1),
+		};
 	}
 
-	public static function findQuickestPath(input:String):Int {
-		final grid = parse(input);
-		final start = new Point(1, 0);
-		final goal = new Point(grid.width - 2, grid.height - 1);
-
-		final maps = [0 => grid.map];
+	static function findQuickestPath(grid:Grid<Tile>, minute:Int, start:Point, goal:Point, cache:Map<Int, HashMap<Point, Tile>>):Int {
+		cache[0] = grid.map;
 		function mapAt(minute:Int):HashMap<Point, Tile> {
-			return maps[minute] ?? maps.compute(minute, function(_) {
+			return cache[minute] ?? cache.compute(minute, function(_) {
 				final previous = mapAt(minute - 1);
 				final newMap = new HashMap<Point, Tile>();
 				for (pos => tile in previous) {
@@ -75,13 +83,28 @@ class Day24 {
 				.map(dir -> new SearchState(state.pos + dir, newTime));
 		}
 		return AStar.search( //
-			[new SearchState(start, 0)], //
+			[new SearchState(start, minute)], //
 			s -> s.pos == goal, //
 			s -> s.pos.distanceTo(goal), //
 			s -> neighbors(s).map(neighbor -> {
 				cost: 1,
 				state: neighbor,
 			})).state.minute;
+	}
+
+	public static function findQuickestPathWithoutSnacks(input:String):Int {
+		final grid = parse(input);
+		return findQuickestPath(grid, 0, grid.start, grid.goal, new Map());
+	}
+
+	public static function findQuickestPathWithSnacks(input:String):Int {
+		final grid = parse(input);
+		final start = grid.start;
+		final goal = grid.goal;
+		final cache = new Map();
+		final path1 = findQuickestPath(grid, 0, start, goal, cache);
+		final path2 = findQuickestPath(grid, path1, goal, start, cache);
+		return findQuickestPath(grid, path2, start, goal, cache);
 	}
 }
 
