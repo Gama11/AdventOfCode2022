@@ -11,5 +11,8 @@ import Std.int;
 import Std.string;
 import Math.floor;
 import Math.abs;
+import Math.pow;
+import Math.log;
+import Math.sqrt;
 import util.Util.mod;
 import Sys.println;

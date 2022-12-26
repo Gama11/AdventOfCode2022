@@ -180,7 +180,6 @@ class Tests implements ITest {
 		20 == Day23.findFirstRoundWithoutMovement(data("day23/example"));
 		930 == Day23.findFirstRoundWithoutMovement(data("day23/input"));
 	}
-	#end
 
 	function specDay24() {
 		18 == Day24.findQuickestPathWithoutSnacks(data("day24/example"));
@@ -188,5 +187,11 @@ class Tests implements ITest {
 
 		54 == Day24.findQuickestPathWithSnacks(data("day24/example"));
 		861 == Day24.findQuickestPathWithSnacks(data("day24/input"));
+	}
+	#end
+
+	function specDay25() {
+		"2=-1=0" == Day25.findFuelSumAsSnafu(data("day25/example"));
+		"2-0-01==0-1=2212=100" == Day25.findFuelSumAsSnafu(data("day25/input"));
 	}
 }
