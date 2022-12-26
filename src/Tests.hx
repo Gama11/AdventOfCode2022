@@ -147,7 +147,14 @@ class Tests implements ITest {
 		56000011 == Day15.findTuningFrequency(data("day15/example"), 20);
 		11796491041245 == Day15.findTuningFrequency(data("day15/input"), 4000000);
 	}
+	#end
 
+	function specDay17() {
+		3068 == Day17.determineTowerHeight(data("day17/example"));
+		3147 == Day17.determineTowerHeight(data("day17/input"));
+	}
+
+	#if !only_current_day
 	function specDay18() {
 		10 == Day18.calculateSurfaceArea(data("day18/example1"));
 		64 == Day18.calculateSurfaceArea(data("day18/example2"));
@@ -188,10 +195,10 @@ class Tests implements ITest {
 		54 == Day24.findQuickestPathWithSnacks(data("day24/example"));
 		861 == Day24.findQuickestPathWithSnacks(data("day24/input"));
 	}
-	#end
 
 	function specDay25() {
 		"2=-1=0" == Day25.findFuelSumAsSnafu(data("day25/example"));
 		"2-0-01==0-1=2212=100" == Day25.findFuelSumAsSnafu(data("day25/input"));
 	}
+	#end
 }
