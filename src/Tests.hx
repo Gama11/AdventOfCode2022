@@ -150,8 +150,11 @@ class Tests implements ITest {
 	#end
 
 	function specDay17() {
-		3068 == Day17.determineTowerHeight(data("day17/example"));
-		3147 == Day17.determineTowerHeight(data("day17/input"));
+		3068 == Day17.determineTowerHeight(data("day17/example"), 2022);
+		3147 == Day17.determineTowerHeight(data("day17/input"), 2022);
+
+		1514285714288i64 == Day17.determineTowerHeight(data("day17/example"), 1000000000000i64);
+		1532163742758i64 == Day17.determineTowerHeight(data("day17/input"), 1000000000000i64);
 	}
 
 	#if !only_current_day

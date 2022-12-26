@@ -3,7 +3,7 @@ package days;
 import util.Direction.*;
 
 class Day17 {
-	public static function determineTowerHeight(input:String):Int {
+	public static function determineTowerHeight(input:String, totalRocks:Int64):Int64 {
 		final jets = input.split("").map(s -> switch s {
 			case "<": Left;
 			case ">": Right;
@@ -45,16 +45,24 @@ class Day17 {
 			for (y in wallHeight...wallHeight + increase) {
 				chamber[new Point(-1, y)] = "|";
 				chamber[new Point(chamberWidth, y)] = "|";
+				for (x in -1...chamberWidth + 1) {
+					chamber.remove(new Point(x, y - 50));
+				}
 			}
 			wallHeight += increase;
 		}
 		buildWall(10);
 
+		final cycles = new Map<String, {rockIndex:Int64, floor:Int}>();
+
 		var floor = 0;
 		var jetIndex = 0;
-		for (i in 0...2022) {
-			final rock = rocks[i % rocks.length];
+		var rockIndex:Int64 = 0;
+		var skippedFloors:Int64 = 0; 
+		while (rockIndex < totalRocks) {
+			final rock = rocks[(rockIndex % rocks.length).low];
 			var pos = new Point(2, floor + 4);
+			var downMoves = 0;
 
 			while (true) {
 				function tryMove(dir:Direction):Bool {
@@ -66,6 +74,19 @@ class Day17 {
 					}
 				}
 
+				if (skippedFloors == 0 && jetIndex % jets.length == 0) {
+					final key = rocks.indexOf(rock) + "," + downMoves;
+					if (cycles.exists(key)) {
+						final rocksLeft = totalRocks - rockIndex;
+						final rockSkip = rockIndex - cycles[key].rockIndex;
+						final floorIncrease = floor - cycles[key].floor;
+						final skips = rocksLeft / rockSkip;
+						rockIndex += skips * rockSkip;
+						skippedFloors = skips * floorIncrease;
+					} else {
+						cycles[key] = {floor: floor, rockIndex: rockIndex};
+					}
+				}
 				tryMove(jets[jetIndex++ % jets.length]);
 
 				final stopped = !tryMove(Up);
@@ -79,9 +100,12 @@ class Day17 {
 						chamber[pos + offset] = "#";
 					}
 					break;
+				} else {
+					downMoves++;
 				}
 			}
+			rockIndex++;
 		}
-		return floor;
+		return floor + skippedFloors;
 	}
 }
