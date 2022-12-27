@@ -32,7 +32,7 @@ abstract Point(PointImpl) from PointImpl to Hashable {
 	public function sign():Point {
 		return new Point(this.x.sign(), this.y.sign());
 	}
-}
+ }
 
 private class PointImpl implements Hashable {
 	public final x:Int;

@@ -21,7 +21,7 @@ abstract Direction(Point) to Point to Hashable {
 
 	public function rotate(by:Int):Direction {
 		var i = horizontals.indexOf((cast this : Direction)) + by;
-		return horizontals[Util.mod(i, horizontals.length)];
+		return horizontals[mod(i, horizontals.length)];
 	}
 
 	public function toString() {

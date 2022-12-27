@@ -1,3 +1,6 @@
+import days.Day22.CubeLayout;
+import days.Day22.CubeWrappingAlgorithm;
+import days.Day22.FlatWrappingAlgorithm;
 import days.*;
 import sys.io.File;
 import utest.ITest;
@@ -183,8 +186,11 @@ class Tests implements ITest {
 	#end
 
 	function specDay22() {
-		6032 == Day22.findPassword(data("day22/example"));
-		80392 == Day22.findPassword(data("day22/input"));
+		6032 == Day22.findPassword(data("day22/example"), FlatWrappingAlgorithm.new);
+		80392 == Day22.findPassword(data("day22/input"), FlatWrappingAlgorithm.new);
+
+		5031 == Day22.findPassword(data("day22/example"), CubeWrappingAlgorithm.new.bind(4, CubeLayout.Example));
+		19534 == Day22.findPassword(data("day22/input"), CubeWrappingAlgorithm.new.bind(50, CubeLayout.Input));
 	}
 
 	#if !only_current_day
