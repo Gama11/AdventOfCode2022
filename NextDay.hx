@@ -7,7 +7,7 @@ function main() {
 	Sys.setCwd("data");
 	final days = FileSystem.readDirectory(".").filter(FileSystem.isDirectory).map(path -> Std.parseInt(path.replace("day", "")));
 	days.sort(Reflect.compare);
-	final day = days[days.length - 1] + 1;
+	final day = 22; // days[days.length - 1] + 1;
 	final dataDir = 'day$day';
 	FileSystem.createDirectory(dataDir);
 	File.saveContent('$dataDir/example.txt', "");

@@ -44,7 +44,7 @@ private class SearchState {
 		this.pos = pos;
 	}
 
-	public function hash():String {
+	public function hashed():String {
 		return pos.shortString();
 	}
 }

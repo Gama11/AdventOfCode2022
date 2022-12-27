@@ -58,7 +58,7 @@ class Util {
 		if (separator == null) {
 			separator = ~//g;
 		}
-		var grid = input.lines().map(line -> separator.split(line.trim()).filter(it -> it != ""));
+		var grid = input.lines().map(line -> separator.split(line).filter(it -> it != ""));
 		var result = new HashMap<Point, T>();
 		for (y in 0...grid.length) {
 			for (x in 0...grid[y].length) {

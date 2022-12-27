@@ -15,4 +15,5 @@ import Math.pow;
 import Math.log;
 import Math.sqrt;
 import util.Util.mod;
+import util.Util.renderPointHash;
 import Sys.println;

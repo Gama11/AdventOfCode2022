@@ -147,7 +147,6 @@ class Tests implements ITest {
 		56000011 == Day15.findTuningFrequency(data("day15/example"), 20);
 		11796491041245 == Day15.findTuningFrequency(data("day15/input"), 4000000);
 	}
-	#end
 
 	function specDay17() {
 		3068 == Day17.determineTowerHeight(data("day17/example"), 2022);
@@ -157,7 +156,6 @@ class Tests implements ITest {
 		1532163742758i64 == Day17.determineTowerHeight(data("day17/input"), 1000000000000i64);
 	}
 
-	#if !only_current_day
 	function specDay18() {
 		10 == Day18.calculateSurfaceArea(data("day18/example1"));
 		64 == Day18.calculateSurfaceArea(data("day18/example2"));
@@ -182,7 +180,14 @@ class Tests implements ITest {
 		301 == Day21.findCorrectHumanInput(data("day21/example"));
 		3441198826073i64 == Day21.findCorrectHumanInput(data("day21/input"));
 	}
+	#end
 
+	function specDay22() {
+		6032 == Day22.findPassword(data("day22/example"));
+		80392 == Day22.findPassword(data("day22/input"));
+	}
+
+	#if !only_current_day
 	function specDay23() {
 		110 == Day23.countEmptyTilesBetweenElves(data("day23/example"));
 		3780 == Day23.countEmptyTilesBetweenElves(data("day23/input"));
